@@ -45,7 +45,7 @@ function Navbar() {
       </div>) : (<div className='flex items-center'>
           <h3 className='px-2'>{ user?.username}</h3>
           <img src={user?.image} alt="User Avatar" className='w-10 h-10 border-2 border-primary rounded-full mr-2 ' />
-          <Button name="Logout" onClick={handleLogout} variant="border"  size="ms" className='px-3 py-1 bg-red-400 text-center text-white' />
+          <Button name="Logout" onClick={handleLogout} variant="border"  size="ms" className='px-3 py-1 bg-red-400 text-center ' />
       </div>)
         }
      
