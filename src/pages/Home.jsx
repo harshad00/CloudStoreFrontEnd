@@ -49,7 +49,7 @@ export default function Home() {
                 size="lg"
                 onClick={ !user && handleGetStarted || user && handleGetStartedforLoginUser}
 
-                name={'Start Free'}
+                name={'Upload Media'}
                 className=""
               >
               </Button>
