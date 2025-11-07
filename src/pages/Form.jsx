@@ -52,10 +52,10 @@ function SubmissionForm() {
   }, [success, navigate]);
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center min-h-screen px-4 py-8">
       <form
         onSubmit={handleSubmit}
-        className="max-w-md w-full bg-white/5 backdrop-blur-lg p-6 rounded-2xl shadow-lg space-y-4"
+        className="max-w-md w-full bg-white/5 backdrop-blur-lg p-4 md:p-6 rounded-2xl shadow-lg space-y-4"
       >
         <input
           type="text"

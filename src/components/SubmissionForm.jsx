@@ -63,7 +63,7 @@ import { FileUploadZone } from "./FileUploadZone";
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-xl border mt-10">
+    <div className="max-w-2xl mx-auto p-4 md:p-6 bg-white shadow-md rounded-xl border mt-10">
       <h2 className="text-2xl font-bold mb-2 text-center">Upload Your Files</h2>
       <p className="text-gray-600 mb-6 text-center">
         Fill in the details and upload your files easily
