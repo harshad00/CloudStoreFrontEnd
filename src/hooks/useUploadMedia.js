@@ -11,7 +11,8 @@ export function useUploadMedia() {
     setSuccess(false);
 
     try {
-      const res = await fetch("http://localhost:3000/api/media/upload", {
+    //   const res = await fetch("http://localhost:3000/api/media/upload", {
+      const res = await fetch("https://cloudstorebackend-i2n1.onrender.com/api/media/upload", {
           method: "POST",
           credentials: "include",
         body: formData, // FormData handles files automatically

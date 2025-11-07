@@ -13,8 +13,8 @@ export function useFetchMediaFiles(mediaId) {
       setError(null);
 
       try {
-        const res = await fetch(
-          `http://localhost:3000/api/media/getByMediaId?mediaId=${mediaId}`,
+        // const res = await fetch(`http://localhost:3000/api/media/getByMediaId?mediaId=${mediaId}`,
+        const res = await fetch(`https://cloudstorebackend-i2n1.onrender.com/api/media/getByMediaId?mediaId=${mediaId}`,
           {
             method: "GET",
             credentials: "include", // ✅ send cookies

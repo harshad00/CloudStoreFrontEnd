@@ -10,7 +10,7 @@ export default function Home() {
   const { user, setUser } = useAuth();
   const navigator = useNavigate();
   const handleGetStarted = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "https://cloudstorebackend-i2n1.onrender.com/auth/google";
   }
   const handleGetStartedforLoginUser = () => {
     navigator("/form");

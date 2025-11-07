@@ -9,7 +9,8 @@ export function useGetAllMedia() {
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/media/getAllMedia", {
+        // const res = await fetch("http://localhost:3000/api/media/getAllMedia", {
+        const res = await fetch("https://cloudstorebackend-i2n1.onrender.com/api/media/getAllMedia", {
             method: "GET",
             credentials: "include",
         });

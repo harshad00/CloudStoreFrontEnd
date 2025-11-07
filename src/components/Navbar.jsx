@@ -10,11 +10,13 @@ function Navbar() {
   console.log(user);
   
    const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:3000/auth/google";
+    // window.location.href = "http://localhost:3000/auth/google";
+    window.location.href = "https://cloudstorebackend-i2n1.onrender.com/auth/google";
   };
     const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:3000/auth/logout", {
+      // const res = await fetch("http://localhost:3000/auth/logout", {
+      const res = await fetch("https://cloudstorebackend-i2n1.onrender.com/auth/logout", {
         method: "GET",
         credentials: "include", // important so cookie gets sent
       });

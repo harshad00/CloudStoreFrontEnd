@@ -10,7 +10,8 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://localhost:3000/auth/check", {
+        // const res = await fetch("http://localhost:3000/auth/check", {
+        const res = await fetch("https://cloudstorebackend-i2n1.onrender.com/auth/check", {
           credentials: "include", // important for cookies
         });
         const data = await res.json();

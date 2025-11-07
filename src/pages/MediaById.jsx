@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useFetchMediaFiles } from "../hooks/useFetchMediaFiles";
 
 function MediaById() {
   const location = useLocation();
+  const navigate = useNavigate(); // 🆕 for back navigation
   const params = new URLSearchParams(location.search);
   const mediaId = params.get("mediaId");
 
   const { files, loading, error } = useFetchMediaFiles(mediaId);
-  const [preview, setPreview] = useState(null); // 🆕 store selected file
+  const [preview, setPreview] = useState(null);
 
   if (loading) {
     return (
@@ -37,6 +38,15 @@ function MediaById() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-accent/20 to-background py-10 px-6">
       <div className="container mx-auto">
+        {/* 🆕 Back Button */}
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 border border-primary/40 rounded-lg text-base font-semibold text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+        >
+          ← Back
+        </button>
+
+
         <h1 className="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
           Media Gallery
         </h1>
@@ -47,9 +57,8 @@ function MediaById() {
             <div
               key={file._id}
               className="relative group rounded-2xl overflow-hidden shadow-lg bg-white/10 backdrop-blur-md border border-white/10 hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-              onClick={() => setPreview(file)} // 🆕 open fullscreen preview
+              onClick={() => setPreview(file)}
             >
-              {/* 🖼 Image */}
               {file.type === "image" && (
                 <img
                   src={file.url}
@@ -59,7 +68,6 @@ function MediaById() {
                 />
               )}
 
-              {/* 🎥 Video */}
               {file.type === "video" && (
                 <video
                   src={file.url}
@@ -74,14 +82,12 @@ function MediaById() {
                 />
               )}
 
-              {/* 🗂 Unsupported */}
               {!["image", "video"].includes(file.type) && (
                 <div className="h-72 flex items-center justify-center text-muted-foreground">
                   Unsupported file type
                 </div>
               )}
 
-              {/* 📄 File Info */}
               <div className="absolute bottom-0 left-0 w-full bg-black/50 backdrop-blur-md text-white p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <p className="text-sm font-medium truncate">
                   {file.url.split("/").pop()}
@@ -101,13 +107,12 @@ function MediaById() {
       {preview && (
         <div
           className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50"
-          onClick={() => setPreview(null)} // close on click
+          onClick={() => setPreview(null)}
         >
           <div
             className="relative max-w-6xl max-h-[90vh] w-full flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()} // prevent close on inside click
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* ✖ Close Button */}
             <button
               className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition"
               onClick={() => setPreview(null)}
@@ -115,7 +120,6 @@ function MediaById() {
               ✕
             </button>
 
-            {/* 📸 Display Image or Video */}
             {preview.type === "image" ? (
               <img
                 src={preview.url}
